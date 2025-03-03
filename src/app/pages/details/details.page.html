@@ -26,10 +26,9 @@
         <p class="description">{{ details.description }}</p>
         <p class="rating">Bougth: <strong>{{ details.rating.count }}+</strong></p>
         <p class="rating">Rate: <strong>{{ details.rating.rate }} ⭐</strong></p>
-        <ion-button expand="full" color="success" (click)="addToCart(details)">
+        <app-button value="Agregar al Carrito" expand="full" color="success" (click)="addToCart(details)">
           <ion-icon slot="start" name="cart-outline"></ion-icon>
-          Agregar al Carrito
-        </ion-button>
+        </app-button>
       </ion-card-content>
     </ion-card>
   </div>
