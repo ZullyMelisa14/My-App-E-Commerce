@@ -1,0 +1,33 @@
+<ion-card class="product-card">
+  <ion-card-header>
+    <ion-card-title>{{ item.title }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div class="product-container">
+      <div class="image-container">
+        <img [src]="item.image" alt="{{ item.title }}">
+      </div>
+
+      <div class="product-details">
+        <p class="price"><ion-icon name="cash-outline"></ion-icon> <strong>{{ item.price | currency:'USD' }}</strong></p>
+        <p class="quantity"><ion-icon name="cart-outline"></ion-icon> Cantidad: <strong>{{ item.quantity || 1 }}</strong></p>
+        
+        <div class="quantity-controls">
+          <ion-button size="small" color="medium" fill="clear" (click)="deCreaseCant()">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-button>
+          <span class="quantity-display">{{ item.quantity || 1 }}</span>
+          <ion-button size="small" color="medium" fill="clear" (click)="inCreaseCant()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-card-content>
+
+  <ion-button expand="block" color="danger" shape="round" (click)="removeItem()">
+    <ion-icon slot="start" name="trash-bin-outline"></ion-icon>
+    Eliminar Producto
+  </ion-button>
+</ion-card>

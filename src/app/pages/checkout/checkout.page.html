@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Finalizar Compra</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cart"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding checkout-container">
+  <ion-card class="checkout-card">
+    <ion-card-header>
+      <ion-card-title>Detalles de Pago</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <form [formGroup]="checkOut" (ngSubmit)="processPayment()">
+        <ion-item>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-input placeholder="Nombre Completo" formControlName="fullName"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="location-outline" slot="start"></ion-icon>
+          <ion-input placeholder="Dirección" formControlName="address"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="card-outline" slot="start"></ion-icon>
+          <ion-input type="text" placeholder="Número de Tarjeta" formControlName="cardNumber" maxlength="16"></ion-input>
+        </ion-item>
+
+        <div class="row">
+          <ion-item class="small-input">
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            <ion-input type="text" placeholder="MM/YY" formControlName="expiryDate"></ion-input>
+          </ion-item>
+
+          <ion-item class="small-input">
+            <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+            <ion-input [type]="showCVV ? 'text' : 'password'" placeholder="CVV" formControlName="cvv" maxlength="3"></ion-input>
+            <ion-icon 
+              [name]="showCVV ? 'eye-off-outline' : 'eye-outline'" 
+              slot="end" 
+              (click)="toggleShowCVV()">
+            </ion-icon>
+          </ion-item>
+        </div>
+
+        <ion-button expand="block" type="submit" color="success" [disabled]="checkOut.invalid">
+          <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
+          Pagar Ahora
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,88 @@
+.total-card {
+    margin: 20px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.total-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-text span {
+    color: #28a745;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+
+.product-title {
+    font-size: 1.4rem; // Aumenta el tamaño del título
+    font-weight: bold; // Hace que resalte más
+    color: #222; // Color oscuro para mayor contraste
+    text-transform: capitalize; // Formatea bien el texto
+    margin-bottom: 8px;
+    letter-spacing: 0.5px; // Un poco de espacio entre letras para claridad
+}
+
+.product-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .product-title {
+        font-size: 1.3rem; // Tamaño ajustado para móviles
+        text-align: center;
+    }
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+}
+
+.checkout-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 14px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.empty-cart {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #888;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .total-text {
+    font-size: 1.3rem;
+    }
+
+    .checkout-button {
+    font-size: 1rem;
+    padding: 12px;
+    }
+}

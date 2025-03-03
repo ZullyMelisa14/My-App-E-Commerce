@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles del Producto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="default" [routerLink]="['/cart']" color="light">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+        <ion-badge *ngIf="cartItemCount > 0" color="danger">{{ cartItemCount }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="details">
+  <div class="product-container">
+    <ion-card>
+      <img [src]="details.image" class="product-image">
+      <ion-card-header>
+        <ion-card-title class="product-title">{{ details.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="category">Category: <strong>{{ details.category }}</strong></p>
+        <p class="price">Price: <strong>{{ details.price | currency:'USD'}}</strong></p>
+        <p class="description">{{ details.description }}</p>
+        <p class="rating">Bougth: <strong>{{ details.rating.count }}+</strong></p>
+        <p class="rating">Rate: <strong>{{ details.rating.rate }} ⭐</strong></p>
+        <ion-button expand="full" color="success" (click)="addToCart(details)">
+          <ion-icon slot="start" name="cart-outline"></ion-icon>
+          Agregar al Carrito
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-toast trigger="headerAnchor" position="top" message="¡Añadido con éxito!" duration="2000" color="success"></ion-toast>
+</ion-content>

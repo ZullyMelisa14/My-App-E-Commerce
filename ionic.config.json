@@ -1,0 +1,7 @@
+{
+  "name": "apiStore",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

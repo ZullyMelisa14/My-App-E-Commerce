@@ -1,0 +1,96 @@
+    ion-grid {
+        padding: 10px;
+    }
+
+    /* Ajuste para que todas las cards tengan el mismo tamaño */
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Contenedor de la imagen para que todas sean iguales sin recortarse */
+    .image-container {
+        width: 100%;
+        height: 200px; /* Ajusta la altura según necesites */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f9f9f9;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    /* Ajuste del contenido para que las cards sean del mismo tamaño */
+    ion-card-header,
+    ion-card-content {
+        flex-grow: 1;
+    }
+
+    /* Categoría */
+    .category {
+        font-weight: bold;
+        color: #666;
+    }
+
+    /* Rating */
+    .rating {
+        color: #FFD700;
+        font-weight: bold;
+    }
+
+    /* Precio */
+    .price {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #28a745;
+    }
+
+    /* Limitar la altura del scroll */
+    .custom-scroll {
+        --overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh; /* Que ocupe toda la pantalla */
+        max-height: calc(200px * 2 + 40px); /* Máximo 2 filas de cartas visibles */
+    }
+
+    /* Ajuste de la grilla para que el scroll termine en 2 filas */
+    .product-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .pagination-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .pagination-title {
+        flex-grow: 1;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    
+    
+
+
+        

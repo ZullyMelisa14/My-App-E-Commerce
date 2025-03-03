@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Resumen de Compra</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goHome()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="purchase; else emptySummary">
+  <div #pdfContent>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Detalles de la Compra</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Nombre:</strong> {{ purchase.customer.fullName }}</p>
+        <p><strong>Dirección:</strong> {{ purchase.customer.address }}</p>
+        <p><strong>Número de Tarjeta:</strong> {{ getMaskedCardNumber() }}</p>
+
+        <ion-list>
+          <ion-item *ngFor="let item of purchase.cart">
+            <ion-thumbnail slot="start">
+              <img [src]="item.image">
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ item.title }}</h2>
+              <p>Precio: {{ item.price | currency:'USD' }} x {{ item.quantity }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ion-card class="total-card">
+          <ion-card-content>
+            <h2 class="total-text">Cantidad Total: <span>{{ totalItems }}</span></h2>
+            <h2 class="total-text">Total Pagado: <span>{{ totalPaid | currency: 'USD' }}</span></h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Botón para descargar PDF -->
+  <div class="pdf-container">
+    <ion-button expand="full" color="primary" shape="round" (click)="downloadPDF()">
+      <ion-icon slot="start" name="download-outline"></ion-icon>
+      Descargar PDF
+    </ion-button>
+  </div>
+</ion-content>
+
+<ng-template #emptySummary>
+  <ion-card class="empty-summary">
+    <ion-card-content>No hay compras recientes.</ion-card-content>
+  </ion-card>
+</ng-template>

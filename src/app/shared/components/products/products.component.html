@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true" class="custom-scroll">
+  <ion-grid>
+    <!-- Filtros en una sola línea -->
+    <ion-row class="filters-row">
+      <ion-col size="12" size-md="4">
+        <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="filterProducts()" placeholder="Buscar productos..."></ion-searchbar>
+      </ion-col>
+      <ion-col size="6" size-md="4">
+        <app-select (categorySelected)="loadProductsByCategory($event)"></app-select>
+      </ion-col>
+      <ion-col size="6" size-md="4">
+        <app-sort (sortSelected)="sortProducts($event)"></app-sort>
+      </ion-col>
+    </ion-row>
+
+    <!-- Productos -->
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let product of filteredProducts">
+        <ion-card [routerLink]="['/details/' + product.id]" class="product-card">
+          <div class="image-container">
+            <img [src]="product.image" alt="{{ product.title }}">
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{ product.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="category">{{ product.category }}</p>
+            <p class="rating">{{ product.rating.rate }} ⭐</p>
+            <p class="price">{{ product.price | currency:'USD' }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

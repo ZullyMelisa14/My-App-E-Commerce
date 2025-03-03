@@ -1,0 +1,25 @@
+.splash-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; // ✅ Pantalla completa
+  background-color: white; // ✅ Fondo blanco
+}
+
+.splash-screen img {
+  width: 150px; // ✅ Ajusta el tamaño del logo
+  height: auto;
+  animation: fadeIn 1.5s ease-in-out; // ✅ Animación suave
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+html, body {
+  overflow: hidden;  // ❌ Elimina el scroll
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
