@@ -20,7 +20,7 @@ Tecnologías utilizadas 🛠
 
 Instalación 🛠
 1. Clona el repositorio:
-   git clone https://github.com/zullyMelisa_14/my-ecommerce-store.git
+   git clone https://github.com/ZullyMelisa14/My-App-E-Commerce.git
 2. Accede al directorio del proyecto:
    cd my-ecommerce-store
 3. Instala las dependencias:
